@@ -8,9 +8,11 @@ def compute_km(row):
 class Preprocessor: 
     def __init__(self, data_path, bp_path):
         self.data = self.init_data(data_path)
+        self.data['year'] = self.data['Hinreisedatum'].dt.year
+        self.data['id'] = self.data.index
 
     def init_data(self, path):
-        data = pd.read_parquet(path)
+        data = pd.read_parquet(path).dropna(subset='Hinreisedatum')
         bp = pd.read_csv(bp_path)
 
         return data.merge(
@@ -40,8 +42,8 @@ class Preprocessor:
     
 
 if __name__ == "__main__":
-    data_path = '../data/anonymized_sap_data.parquet'
-    bp_path = '../data/BP.csv'
+    data_path = './data/anonymized_sap_data.parquet'
+    bp_path = './data/BP.csv'
 
     singleton = Preprocessor(data_path, bp_path)
     Preprocessor.compute_km(singleton)
@@ -49,5 +51,5 @@ if __name__ == "__main__":
 
     singleton.data.rename(columns={
         'Geschäftspartner' : 'business_id'
-    })[['business_id', 'lat_von', 'lon_von', 'lat_nach', 'lon_nach', 'km', 'co2_bahn', 'co2_auto']] \
+    })[['business_id', 'year', 'lat_von', 'lon_von', 'lat_nach', 'lon_nach', 'km', 'co2_bahn', 'co2_auto']] \
         .to_csv('data/export_co2_km.csv', index=False)
