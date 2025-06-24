@@ -1,0 +1,21 @@
+[project]
+name = "h4r"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ipywidgets>=8.1.7",
+    "nbformat>=4.2.0",
+    "numpy>=2.3.0",
+    "openpyxl>=3.1.5",
+    "pandas>=2.3.0",
+    "plotly>=6.1.2",
+    "pyarrow>=20.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "anywidget>=0.9.18",
+    "ipykernel>=6.29.5",
+]
