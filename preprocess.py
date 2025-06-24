@@ -22,7 +22,7 @@ class Preprocessor:
         self.data = self.data.rename(columns={
             'Geschäftspartner' : 'business_id'
         })[['business_id', 'year', 'lat_from', 'lon_from', 'lat_to', 'lon_to', 'km', 'co2_train', 'co2_car', 'cw', 'costs_per_km_car', 'costs_per_km_train', 'work_time_gained']]
-        self.aggregate().to_csv('data/export_co2_km_aggregated.csv', index=False)
+        self.aggregate().to_csv('data/export_co2_km_aggregated.csv')
 
     def init_data(self, path):
         data = pd.read_parquet(path).dropna(subset=['Hinreisedatum', 'Geschäftspartner'])
@@ -57,11 +57,11 @@ class Preprocessor:
         self.data['cw'] = self.data['Hinreisedatum'].dt.isocalendar().week
     
     def add_costs_per_km(self):
-        self.data['costs_per_km_car'] = self.data['km'] * 0.65
-        self.data['costs_per_km_train'] = self.data['km'] * 0.15
+        self.data['costs_per_km_car'] = self.data['km'] * 0.65 
+        self.data['costs_per_km_train'] = (self.data['km'] * 0.15)
     
     def add_work_time_gained(self):
-        self.data['work_time_gained'] = self.data['km'] / 100 - 0.5
+        self.data['work_time_gained'] = self.data['km'].map(lambda row: max(row / 100 - 0.5, 0))
 
     def aggregate(self):
         return self.data.groupby(['cw', 'business_id', 'year']).sum()
