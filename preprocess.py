@@ -38,7 +38,7 @@ class Preprocessor:
         self.data['co2_auto'] = 0.18*self.data['km']
 
     
-
+#Test
 if __name__ == "__main__":
     data_path = '../data/anonymized_sap_data.parquet'
     bp_path = '../data/BP.csv'
