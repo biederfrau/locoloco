@@ -48,6 +48,6 @@ if __name__ == "__main__":
     Preprocessor.compute_co2(singleton)
 
     singleton.data.rename(columns={
-        'Geschäftsfall ID': 'business_id'
+        'Geschäftspartner' : 'business_id'
     })[['business_id', 'lat_von', 'lon_von', 'lat_nach', 'lon_nach', 'km', 'co2_bahn', 'co2_auto']] \
         .to_csv('data/export_co2_km.csv', index=False)
