@@ -54,7 +54,7 @@ Preprocessing steps include:
 
 ## Further steps
 * The plotting of a map with the travelled journeys was implemented but not embedded in the dashboard
-  *  Run the script XXX to see the overlay of travels per business customer
+  *  Run the script map_integration.py to see the overlay of travels per business customer
   *  Scaling via color and thickness of the line indicating the frequency of the specific journey
   *  Thick orange line = frequent journeys, thin yellow line = only few journeys found
 
