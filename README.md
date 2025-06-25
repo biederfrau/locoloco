@@ -52,6 +52,12 @@ Preprocessing steps include:
   *  Deduction of 30mins for changing of connection and setup
 * Data was grouped by business and calendarweek
 
+## Further steps
+* The plotting of a map with the travelled journeys was implemented but not embedded in the dashboard
+  *  Run the script XXX to see the overlay of travels per business customer
+  *  Scaling via color and thickness of the line indicating the frequency of the specific journey
+  *  Thick orange line = frequent journeys, thin yellow line = only few journeys found
+
 ## License
 
 The content of this repository is licensed under the [Apache 2.0 license](LICENSE).
