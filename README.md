@@ -30,7 +30,7 @@ To Map unknown Betriebspunkte (e.g., bus stops to train betriebspunkte) use the 
 ### Preprocessing
 The data was provided by SBB in an anonymized fashion and includes business travel data from all B2B customers from SBB from the last few months. Data was anonymized beforehand so that no conclusions on who the customer is can be drawn.
 Preprocessing steps include: 
-* Mapping of Reise von and Reise nach to Coordinates of Betriebspunkte based on Betriebspunkte on [didok](https://atlas.app.sbb.ch/service-point-directory)
+* Mapping of Reise von and Reise nach to Coordinates of Betriebspunkte based on Betriebspunkte on [didok]([https://atlas.app.sbb.ch/service-point-directory](https://data.sbb.ch/explore/dataset/dienststellen-gemass-opentransportdataswiss/export/?flg=fr-ch))
   *  If the Betriebspunkt is not known to SBB (mainly bus stops), the closest Betriebspunkt is trying to be found
     *  Remove the substring after the comma and find a train station with the corresponding name
     *  If a train station was found, the coordinates from this station are used
