@@ -57,7 +57,9 @@ Preprocessing steps include:
   *  Run the script map_integration.py to see the overlay of travels per business customer
   *  Scaling via color and thickness of the line indicating the frequency of the specific journey
   *  Thick orange line = frequent journeys, thin yellow line = only few journeys found
-
+<p>
+  <img alt="Example of Journeys Travelled" src="img/map.png" height="400"/>
+</p>
 ## License
 
 The content of this repository is licensed under the [Apache 2.0 license](LICENSE).
