@@ -10,8 +10,8 @@ This dashboard aims to encourage a modal shift and reduce overall CO₂ emission
 ## Background
 
 <p>
-  <img alt="Hack4Rail Logo" src="img/hack4rail-logo.jpg" width="220"/>
-  <img alt="Hack4Rail Logo" src="img/hack4rail-logo.jpg" width="220"/>
+  <img alt="Loco Loco Logo" src="img/logo.png" height="400"/>
+  <img alt="Hack4Rail Logo" src="img/hack4rail-logo.jpg" height="400"/>
 </p>
 
 
