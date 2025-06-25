@@ -22,7 +22,10 @@ class Preprocessor:
         self.data = self.data.rename(columns={
             'Geschäftspartner' : 'business_id'
         })[['business_id', 'year', 'lat_from', 'lon_from', 'lat_to', 'lon_to', 'km', 'co2_train', 'co2_car', 'cw', 'costs_per_km_car', 'costs_per_km_train', 'work_time_gained']]
-        self.aggregate().to_csv('data/export_co2_km_aggregated.csv')
+        self.data = self.aggregate()
+        self.data['id'] = self.data.index
+
+        self.data.to_csv('data/export_co2_km_aggregated.csv', index=False)
 
     def init_data(self, path):
         data = pd.read_parquet(path).dropna(subset=['Hinreisedatum', 'Geschäftspartner'])
@@ -64,7 +67,7 @@ class Preprocessor:
         self.data['work_time_gained'] = self.data['km'].map(lambda row: max(row / 100 - 0.5, 0))
 
     def aggregate(self):
-        return self.data.groupby(['cw', 'business_id', 'year']).sum()
+        return self.data.groupby(['cw', 'business_id', 'year']).sum().reset_index()
     
 if __name__ == "__main__":
     data_path = './data/anonymized_sap_data.parquet'
